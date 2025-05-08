@@ -324,7 +324,7 @@ These fields just have default values; these methods do nothing.
 For unit tests, the `@cubbk/next-router-mock/navigation` module can be used as a drop-in replacement for `next/navigation`:
 
 ```js
-jest.mock("next/navigation", () => require("@cubbk/@cubbk/next-router-mock/navigation"));
+jest.mock("next/navigation", () => require("@cubbk/next-router-mock/navigation"));
 ```
 
 You can do this once per spec file, or you can [do this globally using `setupFilesAfterEnv`](https://jestjs.io/docs/configuration/#setupfilesafterenv-array).
@@ -334,11 +334,11 @@ You can do this once per spec file, or you can [do this globally using `setupFil
 In your tests, use the router from `@cubbk/next-router-mock` to set the current URL and to make assertions.
 
 ```jsx
-import mockRouter from "@cubbk/@cubbk/next-router-mock";
+import mockRouter from "@cubbk/next-router-mock";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { usePathname, useRouter } from "next/navigation";
 
-jest.mock("next/navigation", () => jest.requireActual("@cubbk/@cubbk/next-router-mock/navigation"));
+jest.mock("next/navigation", () => jest.requireActual("@cubbk/next-router-mock/navigation"));
 
 const ExampleComponent = ({ href = "" }) => {
   const router = useRouter();
